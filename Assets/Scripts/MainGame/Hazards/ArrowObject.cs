@@ -2,18 +2,11 @@ using UnityEngine;
 
 public class ArrowObject : MonoBehaviour
 {
-    public float speed;
-    public float damage;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float speed;
+    [SerializeField] private float damage;
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * (speed * Time.deltaTime));
     }
 }

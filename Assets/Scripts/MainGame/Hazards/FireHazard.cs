@@ -8,21 +8,11 @@ using UnityEngine.Serialization;
 public class FireHazard : MonoBehaviour
 {
     public event UnityAction<FireEnteredEventArgs> onCharacterEnteredAction;
-    
+
     [HideInInspector] public FireHazardScriptableObject fireHazardData;
 
     [SerializeField]
     private UnityEvent<FireEnteredEventArgs> onCharacterEntered = new UnityEvent<FireEnteredEventArgs>();
-
-    // public void SetScriptableData(FireHazardScriptableObject fireHazardScriptableObject)
-    // {
-    //     fireHazardData = fireHazardScriptableObject;
-    // }
-    // private void Start()
-    // { 
-    //     if(onCharacterEnteredAction != null)
-    //        onCharacterEntered.AddListener(onCharacterEnteredAction);
-    // }
 
     private void OnTriggerEnter(Collider other)
     {

@@ -7,10 +7,11 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI hpText;
-    
+
     [SerializeField] private PlayerCharacterController bobby;
     [SerializeField] private GameObject skillsHolder;
-    
+    [SerializeField] private SkillButtonUI[] skillsButtonUI;
+
     public void RefreshHPText(int newHP)
     {
         hpText.text = newHP.ToString();
@@ -28,12 +29,12 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        skillsHolder = GameObject.Find("Skills Group");
-        GameObject[] skillsButtonUI = skillsHolder.GetComponentsInChildren<GameObject>();
-        
+        // skillsHolder = GameObject.Find("Skills Group");
+
         for (int i = 0; i < skillsButtonUI.Length; i++)
         {
-            skillsButtonUI[i].GetComponent<SkillButtonUI>().skillIcon.sprite =  skillsButtonUI[i].GetComponent<SkillButtonUI>().skillIcons[i];
+            skillsButtonUI[i].GetComponent<SkillButtonUI>().skillIcon.sprite =
+                skillsButtonUI[i].GetComponent<SkillButtonUI>().skillIcons[i];
             skillsButtonUI[i].GetComponent<SkillButtonUI>().skillNameText.text = "Skill " + (i + 1);
         }
     }

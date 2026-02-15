@@ -1,25 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 public class PlayerCharacterController : MonoBehaviour
 {
     public event UnityAction<int> onTakeDamageEventAction;
     [SerializeField] private UnityEvent<int> onTakeDamageEvent;
 
-    [Header("Navigation")] 
+    [Header("Navigation")] [SerializeField]
     private NavMeshAgent navMeshAgent;
 
     [SerializeField] private Transform waypoint;
     [SerializeField] private Transform[] pathWaypoints;
-    
-    private Animator animator;
+    [SerializeField] private Animator animator;
 
     public int Hp
     {
@@ -62,7 +55,7 @@ public class PlayerCharacterController : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         hp -= damageAmount;
-        float hpPercentLeft = (float) hp / startingHp;
+        float hpPercentLeft = (float)hp / startingHp;
         animator.SetLayerWeight(1, (1 - hpPercentLeft));
         onTakeDamageEvent.Invoke(hp);
         onTakeDamageEventAction?.Invoke(hp);
@@ -71,8 +64,6 @@ public class PlayerCharacterController : MonoBehaviour
     private void Start()
     {
         hp = 100;
-        animator = GetComponent<Animator>();
-        navMeshAgent = GetComponent<NavMeshAgent>();
         startingHp = hp;
         SetMudAreaCost();
         ToggleMoving(true);
@@ -106,26 +97,15 @@ public class PlayerCharacterController : MonoBehaviour
 
         if (animator)
             animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
-        
-        if (Camera.main != null)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit, 100f))
-            {
-                //We want to know what the mouse is hovering now
-                Debug.Log($"Hit: {hit.collider.name}");
-            }
-        }
 
-    }
-    
-    private void OnEnable()
-    {
-        
-    }
-
-    private void OnDisable()
-    {
-        
+        // if (Camera.main != null)
+        // {
+        //     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //     if (Physics.Raycast(ray, out RaycastHit hit, 100f))
+        //     {
+        //         //We want to know what the mouse is hovering now
+        //         Debug.Log($"Hit: {hit.collider.name}");
+        //     }
+        // }
     }
 }

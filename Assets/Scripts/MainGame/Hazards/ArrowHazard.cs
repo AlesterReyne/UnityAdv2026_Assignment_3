@@ -3,14 +3,10 @@ using UnityEngine;
 
 public class ArrowHazard : MonoBehaviour
 {
-    public GameObject arrowPrefab;
+    [SerializeField] private GameObject arrowPrefab;
+    private ArrowObject arrow;
     [SerializeField] float shootInterval;
     private float shootIntervalLeft;
-    
-    private void Awake()
-    {
-        
-    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,10 +20,15 @@ public class ArrowHazard : MonoBehaviour
         shootIntervalLeft -= Time.deltaTime;
         if (shootIntervalLeft <= 0)
         {
-            ArrowObject arrow = Instantiate(arrowPrefab,transform.position,Quaternion.identity).GetComponent<ArrowObject>();
-            arrow.transform.Rotate(0,90,0);
-            arrow.transform.Rotate(0,90,0);
-            shootIntervalLeft = shootInterval;
+            CreateArrow();
         }
+    }
+
+    private void CreateArrow()
+    {
+        arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity).GetComponent<ArrowObject>();
+        arrow.transform.Rotate(0, 90, 0);
+        arrow.transform.Rotate(0, 90, 0);
+        shootIntervalLeft = shootInterval;
     }
 }
