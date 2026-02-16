@@ -7,10 +7,11 @@ namespace MainGame.Hazards
     {
         [SerializeField] private float speed;
         [SerializeField] private float damage;
-        [SerializeField] private float timeToDestroy = 3;
+        [SerializeField] private float timeToDestroy;
 
-        private void Start()
+        private void OnEnable()
         {
+            gameObject.transform.position = new Vector3(transform.parent.position.x, transform.parent.position.y + 1, transform.parent.position.z);
             StartCoroutine(SelfDisable());
         }
 

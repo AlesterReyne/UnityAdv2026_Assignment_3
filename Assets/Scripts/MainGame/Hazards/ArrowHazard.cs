@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace MainGame.Hazards
@@ -18,26 +19,24 @@ namespace MainGame.Hazards
 
             for (int i = 0; i < amountToPool; i++)
             {
-                _arrow = Instantiate(arrowPrefab, transform).GetComponent<ArrowObject>();
-                _arrow.gameObject.SetActive(false);
-                _pooledArrows.Add(_arrow);
+                AddArrow();
             }
 
-            StartCoroutine(CreateArrow());
+            StartCoroutine(GetArrow());
         }
 
-        private IEnumerator CreateArrow()
+        private IEnumerator GetArrow()
         {
             yield return new WaitForSeconds(shootInterval);
             ArrowObject arrow = GetPooledObject();
             if (arrow)
             {
-                arrow.transform.position = transform.position;
-                arrow.transform.rotation = transform.rotation;
+                // arrow.transform.position = transform.position;
+                // arrow.transform.rotation = transform.rotation;
                 arrow.gameObject.SetActive(true);
             }
 
-            StartCoroutine(CreateArrow());
+            StartCoroutine(GetArrow());
         }
 
         public ArrowObject GetPooledObject()
@@ -50,7 +49,15 @@ namespace MainGame.Hazards
                 }
             }
 
-            return null;
+            AddArrow();
+            return _pooledArrows[_pooledArrows.Count - 1];
+        }
+
+        private void AddArrow()
+        {
+            _arrow = Instantiate(arrowPrefab, transform).GetComponent<ArrowObject>();
+            _arrow.gameObject.SetActive(false);
+            _pooledArrows.Add(_arrow);
         }
     }
 }
