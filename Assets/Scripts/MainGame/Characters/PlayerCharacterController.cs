@@ -1,111 +1,122 @@
+using Data;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
-public class PlayerCharacterController : MonoBehaviour
+namespace MainGame.Characters
 {
-    public event UnityAction<int> onTakeDamageEventAction;
-    [SerializeField] private UnityEvent<int> onTakeDamageEvent;
-
-    [Header("Navigation")] [SerializeField]
-    private NavMeshAgent navMeshAgent;
-
-    [SerializeField] private Transform waypoint;
-    [SerializeField] private Transform[] pathWaypoints;
-    [SerializeField] private Animator animator;
-
-    public int Hp
+    public class PlayerCharacterController : MonoBehaviour
     {
-        get => hp;
-        set => hp = value;
-    }
+        public event UnityAction<int> OnTakeDamageEventAction;
+        [SerializeField] private UnityEvent<int> onTakeDamageEvent;
 
-    public int CurrentWaypointIndex
-    {
-        get => currentWaypointIndex;
-        set => currentWaypointIndex = value;
-    }
+        [Header("Navigation")] [SerializeField]
+        private NavMeshAgent navMeshAgent;
 
-    private bool isMoving = true;
-    private int currentWaypointIndex = 0;
-
-    private bool hasBloodyBoots = true;
+        [SerializeField] private Transform waypoint;
+        [SerializeField] private Transform[] pathWaypoints;
+        [SerializeField] private Animator animator;
+        [SerializeField] private Camera mainCamera;
 
 
-    private int hp;
-    private int startingHp;
+        private bool _isMoving = true;
+        private int _currentWaypointIndex = 0;
+        private readonly bool _hasBloodyBoots = true;
+        private readonly float _maxDistanceOfRaycast = 100f;
 
-    public void ToggleMoving(bool shouldMove)
-    {
-        isMoving = shouldMove;
-        if (navMeshAgent) navMeshAgent.enabled = shouldMove;
-    }
+        private int _hp;
+        private int _startingHp;
 
-    public void SetDestination(Transform targetTransformWaypoint)
-    {
-        if (navMeshAgent)
-            navMeshAgent.SetDestination(targetTransformWaypoint.position);
-    }
-
-    public void SetDestination(int waypointIndex)
-    {
-        SetDestination(pathWaypoints[waypointIndex]);
-    }
-
-    public void TakeDamage(int damageAmount)
-    {
-        hp -= damageAmount;
-        float hpPercentLeft = (float)hp / startingHp;
-        animator.SetLayerWeight(1, (1 - hpPercentLeft));
-        onTakeDamageEvent.Invoke(hp);
-        onTakeDamageEventAction?.Invoke(hp);
-    }
-
-    private void Start()
-    {
-        hp = 100;
-        startingHp = hp;
-        SetMudAreaCost();
-        ToggleMoving(true);
-        SetDestination(pathWaypoints[0]);
-    }
-
-    private void SetMudAreaCost()
-    {
-        if (hasBloodyBoots)
+        public int Hp
         {
-            navMeshAgent.SetAreaCost(3, 1);
-        }
-    }
-
-    [ContextMenu("Take Damage Test")]
-    private void TakeDamageTesting()
-    {
-        TakeDamage(10);
-    }
-
-
-    private void Update()
-    {
-        if (isMoving && !navMeshAgent.isStopped && navMeshAgent.remainingDistance <= 0.1f)
-        {
-            currentWaypointIndex++;
-            if (currentWaypointIndex >= pathWaypoints.Length)
-                currentWaypointIndex = 0;
-            SetDestination(pathWaypoints[currentWaypointIndex]);
+            get => _hp;
+            set => _hp = value;
         }
 
-        if (animator)
-            animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
+        public int CurrentWaypointIndex
+        {
+            get => _currentWaypointIndex;
+            set => _currentWaypointIndex = value;
+        }
 
-        // if (Camera.main != null)
-        // {
-        //     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //     if (Physics.Raycast(ray, out RaycastHit hit, 100f))
-        //     {
-        //         //We want to know what the mouse is hovering now
-        //         Debug.Log($"Hit: {hit.collider.name}");
-        //     }
-        // }
+        public void ToggleMoving(bool shouldMove)
+        {
+            _isMoving = shouldMove;
+            if (navMeshAgent) navMeshAgent.enabled = shouldMove;
+        }
+
+        public void SetDestination(Transform targetTransformWaypoint)
+        {
+            if (navMeshAgent)
+                navMeshAgent.SetDestination(targetTransformWaypoint.position);
+        }
+
+        public void SetDestination(int waypointIndex)
+        {
+            SetDestination(pathWaypoints[waypointIndex]);
+        }
+
+        public void TakeDamage(int damageAmount)
+        {
+            _hp -= damageAmount;
+            float hpPercentLeft = (float)_hp / _startingHp;
+            animator.SetLayerWeight(1, (1 - hpPercentLeft));
+            onTakeDamageEvent.Invoke(_hp);
+            OnTakeDamageEventAction?.Invoke(_hp);
+        }
+
+        private void Start()
+        {
+            if (!mainCamera)
+            {
+                Debug.Log($"Please set camera to {gameObject.name}");
+            }
+
+            _hp = 100;
+            _startingHp = _hp;
+            SetMudAreaCost();
+            ToggleMoving(true);
+            SetDestination(pathWaypoints[0]);
+        }
+
+        private void SetMudAreaCost()
+        {
+            if (_hasBloodyBoots)
+            {
+                navMeshAgent.SetAreaCost(3, 1);
+            }
+        }
+
+        [ContextMenu("Take Damage Test")]
+        private void TakeDamageTesting()
+        {
+            TakeDamage(10);
+        }
+
+
+        private void Update()
+        {
+            if (_isMoving && !navMeshAgent.isStopped && navMeshAgent.remainingDistance <= 0.1f)
+            {
+                _currentWaypointIndex++;
+                if (_currentWaypointIndex >= pathWaypoints.Length)
+                    _currentWaypointIndex = 0;
+                SetDestination(pathWaypoints[_currentWaypointIndex]);
+            }
+
+            if (animator)
+                animator.SetFloat(AnimatorNames.Speed, navMeshAgent.velocity.magnitude);
+
+            if (mainCamera)
+            {
+                Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.value);
+                if (Physics.Raycast(ray, out RaycastHit hit, _maxDistanceOfRaycast))
+                {
+                    //We want to know what the mouse is hovering now
+                    Debug.Log($"Hit: {hit.collider.name}");
+                }
+            }
+        }
     }
 }

@@ -1,34 +1,30 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
-public class ArrowHazard : MonoBehaviour
+namespace MainGame.Hazards
 {
-    [SerializeField] private GameObject arrowPrefab;
-    private ArrowObject arrow;
-    [SerializeField] float shootInterval;
-    private float shootIntervalLeft;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class ArrowHazard : MonoBehaviour
     {
-        shootIntervalLeft = shootInterval;
-    }
+        [SerializeField] private GameObject arrowPrefab;
+        [SerializeField] float shootInterval;
 
-    // Update is called once per frame
-    void Update()
-    {
-        shootIntervalLeft -= Time.deltaTime;
-        if (shootIntervalLeft <= 0)
+        void Start()
         {
-            CreateArrow();
+            StartCoroutine(CreateArrow());
         }
-    }
 
-    private void CreateArrow()
-    {
-        arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity).GetComponent<ArrowObject>();
-        arrow.transform.Rotate(0, 90, 0);
-        arrow.transform.Rotate(0, 90, 0);
-        shootIntervalLeft = shootInterval;
+        private IEnumerator CreateArrow()
+        {
+            yield return new WaitForSeconds(shootInterval);
+            GameObject arrow = ObjectPool.SharedInstance.GetPooledObject();
+            if (arrow != null)
+            {
+                arrow.transform.position = transform.position;
+                arrow.transform.rotation = transform.rotation;
+                arrow.SetActive(true);
+            }
+
+            StartCoroutine(CreateArrow());
+        }
     }
 }

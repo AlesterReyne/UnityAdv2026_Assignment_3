@@ -1,12 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class WaypointGizmo : MonoBehaviour
+namespace MainGame
 {
-    private void OnDrawGizmos()
+    public class WaypointGizmo : MonoBehaviour
     {
-        Gizmos.DrawSphere(transform.position,1);
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawSphere(transform.position,1);
+        }
     }
 }

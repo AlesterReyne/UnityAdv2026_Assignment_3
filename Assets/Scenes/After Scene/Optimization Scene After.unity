@@ -1626,6 +1626,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2946589972397768415, guid: a6883c51f22a91441945fbd6682f0a5f,
         type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 330585545}
+    - target: {fileID: 2946589972397768415, guid: a6883c51f22a91441945fbd6682f0a5f,
+        type: 3}
       propertyPath: agentAnimator
       value: 
       objectReference: {fileID: 64808983}
@@ -3304,65 +3309,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 447959977343178054, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1909036088647140702, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3223228116032834733, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465640823538282242, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3897688673204037649, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4228168443617918962, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4515503486546946856, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786021167004827229, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4864718035442055732, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5349873192412417460, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6265405738061534901, guid: c5299addbd667b54a890dde3a7454050,
         type: 3}
       propertyPath: m_Name
       value: Arrow Shooter
-      objectReference: {fileID: 0}
-    - target: {fileID: 6727734739336990250, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6753396122890947599, guid: c5299addbd667b54a890dde3a7454050,
         type: 3}
@@ -3413,16 +3363,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7000832925570947680, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7829500888880670511, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4473,65 +4413,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 447959977343178054, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1909036088647140702, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3223228116032834733, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465640823538282242, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3897688673204037649, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4228168443617918962, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4515503486546946856, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786021167004827229, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4864718035442055732, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5349873192412417460, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6265405738061534901, guid: c5299addbd667b54a890dde3a7454050,
         type: 3}
       propertyPath: m_Name
       value: Arrow Shooter
-      objectReference: {fileID: 0}
-    - target: {fileID: 6727734739336990250, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6753396122890947599, guid: c5299addbd667b54a890dde3a7454050,
         type: 3}
@@ -4582,16 +4467,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7000832925570947680, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7829500888880670511, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10462,65 +10337,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 447959977343178054, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1909036088647140702, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3223228116032834733, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465640823538282242, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3897688673204037649, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4228168443617918962, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4515503486546946856, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4786021167004827229, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4864718035442055732, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5349873192412417460, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6265405738061534901, guid: c5299addbd667b54a890dde3a7454050,
         type: 3}
       propertyPath: m_Name
       value: Arrow Shooter
-      objectReference: {fileID: 0}
-    - target: {fileID: 6727734739336990250, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6753396122890947599, guid: c5299addbd667b54a890dde3a7454050,
         type: 3}
@@ -10571,16 +10391,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7000832925570947680, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7829500888880670511, guid: c5299addbd667b54a890dde3a7454050,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

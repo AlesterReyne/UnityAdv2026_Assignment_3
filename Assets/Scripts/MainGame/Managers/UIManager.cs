@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MainGame.Characters;
 using TMPro;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        bobby.onTakeDamageEventAction += RefreshHPText;
+        bobby.OnTakeDamageEventAction += RefreshHPText;
     }
 
     private void Start()
