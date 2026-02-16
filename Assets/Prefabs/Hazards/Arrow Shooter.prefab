@@ -824,7 +824,6 @@ GameObject:
   - component: {fileID: 6753396122890947599}
   - component: {fileID: 6499354533826043513}
   - component: {fileID: 3043113354486761642}
-  - component: {fileID: 2549667080936902129}
   m_Layer: 0
   m_Name: Arrow Shooter
   m_TagString: Untagged
@@ -885,24 +884,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 2227274138544148052, guid: 9f4fb076d83c52e48a06dfcbbf830b01,
     type: 3}
-  arrows: []
   shootInterval: 3
---- !u!114 &2549667080936902129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6265405738061534901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be3c387541810624aa6cf41f9b8bb6f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainGame.ObjectPool
-  pooledObjects: []
-  objectToPool: {fileID: 2227274138544148052, guid: 9f4fb076d83c52e48a06dfcbbf830b01,
-    type: 3}
-  amountToPool: 1
+  amountToPool: 5
 --- !u!1 &6312717007588697944
 GameObject:
   m_ObjectHideFlags: 0

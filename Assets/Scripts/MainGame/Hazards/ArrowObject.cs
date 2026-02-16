@@ -1,18 +1,28 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
-public class ArrowObject : MonoBehaviour
+namespace MainGame.Hazards
 {
-    [SerializeField] private float speed;
-    [SerializeField] private float damage;
-
-    void FixedUpdate()
+    public class ArrowObject : MonoBehaviour
     {
-        transform.Translate(Vector3.forward * (speed * Time.deltaTime));
-    }
+        [SerializeField] private float speed;
+        [SerializeField] private float damage;
+        [SerializeField] private float timeToDestroy = 3;
 
-    private void OnCollisionEnter(Collision other)
-    {
-        this.gameObject.SetActive(false);
+        private void Start()
+        {
+            StartCoroutine(SelfDisable());
+        }
+
+        void FixedUpdate()
+        {
+            transform.Translate(Vector3.forward * (speed * Time.deltaTime));
+        }
+
+        private IEnumerator SelfDisable()
+        {
+            yield return new WaitForSeconds(timeToDestroy);
+            gameObject.SetActive(false);
+        }
     }
 }
