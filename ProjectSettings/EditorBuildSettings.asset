@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Baking Scene/Prefab Variants Scene/Prefab Variants Scene.unity
     guid: d243c29dfd062e943b5e38c5e180063f
   m_configObjects:
+    com.unity.adaptivePerformance.basic.provider_settings: {fileID: 11400000, guid: 8909000d4ec7d304ea2f85dc9d6f7f84,
+      type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 296f230ce8a8b854aa7cdca70c150831,
+      type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: d27abeb2884065b4d9e6dc781d72c794, type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: 34080d2027876864eb546c52b7754d21,
       type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: a6ddb170452f60c42bf72e1f405e3033,
