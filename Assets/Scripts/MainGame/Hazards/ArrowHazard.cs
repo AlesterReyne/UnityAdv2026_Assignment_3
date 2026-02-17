@@ -31,8 +31,6 @@ namespace MainGame.Hazards
             ArrowObject arrow = GetPooledObject();
             if (arrow)
             {
-                // arrow.transform.position = transform.position;
-                // arrow.transform.rotation = transform.rotation;
                 arrow.gameObject.SetActive(true);
             }
 

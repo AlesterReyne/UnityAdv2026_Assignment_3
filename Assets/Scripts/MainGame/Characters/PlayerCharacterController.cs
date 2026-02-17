@@ -16,15 +16,17 @@ namespace MainGame.Characters
 
         [SerializeField] private Transform waypoint;
         [SerializeField] private Transform[] pathWaypoints;
-        [SerializeField] private Animator animator;
+
+        [Header("Components")] [SerializeField]
+        private Animator animator;
+
         [SerializeField] private Camera mainCamera;
 
-
-        private bool _isMoving = true;
-        private int _currentWaypointIndex = 0;
-        private readonly bool _hasBloodyBoots = true;
         private readonly float _maxDistanceOfRaycast = 100f;
-
+        private readonly bool _hasBloodyBoots = true;
+        private readonly int _testDamage = 10;
+        private int _currentWaypointIndex = 0;
+        private bool _isMoving = true;
         private int _hp;
         private int _startingHp;
 
@@ -91,7 +93,7 @@ namespace MainGame.Characters
         [ContextMenu("Take Damage Test")]
         private void TakeDamageTesting()
         {
-            TakeDamage(10);
+            TakeDamage(_testDamage);
         }
 
 
