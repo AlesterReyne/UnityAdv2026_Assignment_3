@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 999;
+        QualitySettings.vSyncCount = 0;
         foreach (FireHazard fireHazard in fireHazards)
         {
             fireHazard.fireHazardData =
