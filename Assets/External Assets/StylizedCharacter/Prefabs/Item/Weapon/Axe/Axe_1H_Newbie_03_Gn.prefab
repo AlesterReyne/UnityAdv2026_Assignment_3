@@ -144,6 +144,11 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -165,9 +170,11 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
@@ -228,7 +235,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 9
-  Mappers: []
+  Mappers:
+  - isOpened: 0
+    Materials:
+    - {fileID: 2100000, guid: 62aa59822a5c4646819d9484cc5867e6, type: 2}
+    - {fileID: 0}
+    Wrappers:
+    - Type: 0
+      Enabled: 0
+      Target: {fileID: 0}
+    - Type: 1
+      Enabled: 0
+      Target: {fileID: 0}
+    - Type: 2
+      Enabled: 0
+      Target: {fileID: 0}
+    - Type: 4
+      Enabled: 0
+      Target: {fileID: 0}
+    - Type: 5
+      Enabled: 0
+      Target: {fileID: 0}
+    - Type: 6
+      Enabled: 0
+      Target: {fileID: 0}
+    - Type: 7
+      Enabled: 0
+      Target: {fileID: 0}
+    - Type: 8
+      Enabled: 0
+      Target: {fileID: 0}
+    - Type: 9
+      Enabled: 0
+      Target: {fileID: 0}
+    - Type: 10
+      Enabled: 0
+      Target: {fileID: 0}
+    - Type: 11
+      Enabled: 0
+      Target: {fileID: 0}
+    - Type: 12
+      Enabled: 0
+      Target: {fileID: 0}
   IsTakeTwoHands: 0
   CopySkinMaterial: 0
   Wrappers:
@@ -263,6 +311,9 @@ MonoBehaviour:
     Enabled: 0
     Target: {fileID: 0}
   - Type: 11
+    Enabled: 0
+    Target: {fileID: 0}
+  - Type: 12
     Enabled: 0
     Target: {fileID: 0}
 --- !u!1 &8749016533246346685
